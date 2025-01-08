@@ -6,13 +6,13 @@ import java.util.List;
 public class Empleado extends Persona {
     private CargoEmpleado cargo;
     private boolean disponibilidad;
-    private List<String> asiganciones;
+    private List<String> asignaciones;
 
     public Empleado(String cedula, String nombre, String apellido, CargoEmpleado cargo, Boolean disponibilidad) {
         super(cedula, nombre, apellido);
         this.cargo = cargo;
         this.disponibilidad = disponibilidad;
-        this.asiganciones = new ArrayList<>();
+        this.asignaciones = new ArrayList<>();
     }
 
     public CargoEmpleado getCargo() {
@@ -54,11 +54,11 @@ public class Empleado extends Persona {
     public String asignarTarea(String cedula){
         AsignacionTarea at = new AsignacionTarea();
         at.asignar(CargoEmpleado.CONSERJE);
-        asiganciones.add("");
+        asignaciones.add("");
         return "Se asigno sdasbasb";
     }
 
-    public List<String> mostrarTareas(){
-        return asiganciones;
+    public List<String> mostrarAsignaciones(){
+        return asignaciones;
     }
 }
