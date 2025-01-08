@@ -10,4 +10,8 @@ public class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
     }
+
+    public Persona() {
+
+    }
 }
