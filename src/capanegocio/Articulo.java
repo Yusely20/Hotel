@@ -87,7 +87,7 @@ public class Articulo {
             articulos.add(new Articulo(nombre, categoria, cantidad, prioridad));
         }
         else {
-            JOptionPane.showMessageDialog(null,"El atciculo ya se encuetra registrado");
+            JOptionPane.showMessageDialog(null,"El articulo ya se encuetra registrado");
         }
     }
 
