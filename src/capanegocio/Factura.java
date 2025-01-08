@@ -9,26 +9,24 @@ public class Factura {
     private Fecha fechaEmision;
     private double montoTotal;
     private boolean pagada;
+    private String descripcion;
+    private Habitacion habitacion;
     private MetodoPago metodoPago;
+    private List<Factura> historialFacturas;
 
-    private static List<Factura> historialFacturas = new ArrayList<>();
-
-    public Factura(int numFactura, String cedula, Fecha fechaEmision, double montoTotal, MetodoPago metodoPago) {
+    public Factura(int numFactura, String cedula, Fecha fechaEmision, double montoTotal, String descripcion, MetodoPago metodoPago) {
         this.numFactura = numFactura;
         this.cedula = cedula;
         this.fechaEmision = fechaEmision;
         this.montoTotal = montoTotal;
+        this.descripcion = descripcion;
         this.pagada = false;
         this.metodoPago = metodoPago;
-        historialFacturas.add(this);
+        historialFacturas = new ArrayList<>();
     }
 
     public int getNumFactura() {
         return numFactura;
-    }
-
-    public void setNumFactura(int numFactura) {
-        this.numFactura = numFactura;
     }
 
     public String getCedula() {
@@ -43,16 +41,8 @@ public class Factura {
         return fechaEmision;
     }
 
-    public void setFechaEmision(Fecha fechaEmision) {
-        this.fechaEmision = fechaEmision;
-    }
-
     public double getMontoTotal() {
         return montoTotal;
-    }
-
-    public void setMontoTotal(double montoTotal) {
-        this.montoTotal = montoTotal;
     }
 
     public boolean isPagada() {
@@ -71,17 +61,34 @@ public class Factura {
         this.metodoPago = metodoPago;
     }
 
-    public  void  pagar (){
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void pagar(){
         this.pagada = true;
     }
 
-    public  List<Factura> buscarFactura(String cedula){
-        List<Factura> facturaEncontrada = new ArrayList<>();
-        return facturaEncontrada;
-    }
-    public  List<Factura> historialFacturas (){
-        return new ArrayList<>(historialFacturas);
+    public List<Factura> getHistorialFacturas() {
+        return historialFacturas;
     }
 
+    public Factura buscarFactura(String cedula){
+        for(Factura factura: historialFacturas){
+            if(factura.cedula.equals(cedula)){
+                return factura;
+            }
+        }
+        return null;
+    }
+
+    public String agregarFactura(){
+        historialFacturas.add(new Factura(243,"",new Fecha(1,3,2004),67.9,"",MetodoPago.TARJETA_DEBITO));
+        return "";
+    }
 
 }
