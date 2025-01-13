@@ -6,6 +6,7 @@ package capainterfaz.modulo_inventario;
 
 import capanegocio.Articulo;
 import capanegocio.Categoria;
+import capanegocio.Hotel;
 import capanegocio.TipoAlerta;
 
 /**
@@ -18,12 +19,12 @@ public class ModificarArticulo extends javax.swing.JFrame {
      * Creates new form ModificarArticulo
      */
     
-    Articulo ar;
+    Hotel hotel;
     Articulo articulo;
     
-    public ModificarArticulo(Articulo ar, Articulo articulo){
+    public ModificarArticulo(Hotel hotel, Articulo articulo){
+        this.hotel = hotel;
         this.articulo = articulo;
-        this.ar = ar;
         initComponents();
     }
 
@@ -195,7 +196,7 @@ public class ModificarArticulo extends javax.swing.JFrame {
         
         int cantidad = Integer.parseInt(Cant.getText());
         
-        ar.modificarArticulo(articulo,Nom.getText(),categoria, alerta(cantidad), cantidad);
+        hotel.modificarArticulo(articulo,Nom.getText(),categoria, alerta(cantidad), cantidad);
         
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

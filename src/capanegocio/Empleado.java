@@ -6,14 +6,15 @@ import java.util.List;
 public class Empleado extends Persona {
     private CargoEmpleado cargo;
     private boolean disponibilidad;
-    private List<String> asignaciones;
+    private List<AsignacionTarea> asignaciones;
 
-    public Empleado(String cedula, String nombre, String apellido, CargoEmpleado cargo, Boolean disponibilidad) {
+    public Empleado(String cedula, String nombre, String apellido, CargoEmpleado cargo) {
         super(cedula, nombre, apellido);
         this.cargo = cargo;
-        this.disponibilidad = disponibilidad;
+        this.disponibilidad = true;
         this.asignaciones = new ArrayList<>();
     }
+
 
     public CargoEmpleado getCargo() {
         return cargo;
@@ -23,42 +24,19 @@ public class Empleado extends Persona {
         this.cargo = cargo;
     }
 
-    public Boolean getDisponibilidad() {
+    public boolean isDisponibilidad() {
         return disponibilidad;
     }
 
-    public void setDisponibilidad(Boolean disponibilidad) {
+    public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
 
-    public String agregarEmpleado(String nombre, String apellido){
-      return " ";
+    public void setAsignaciones(List<AsignacionTarea> asignaciones) {
+        this.asignaciones = asignaciones;
     }
 
-    public String eliminarEmpleado(String cedula){
-      return "";
-    }
-
-    public String modificarEmpleado(String cedula){
-        return "";
-    }
-
-    public String dispoEmpleado (String cedula){
-        return "";
-    }
-
-    public Empleado buscarEmpleado (String cedula){
-        return new Empleado("","","",CargoEmpleado.CONSERJE,true);
-    }
-
-    public String asignarTarea(String cedula){
-        AsignacionTarea at = new AsignacionTarea();
-        at.asignar(CargoEmpleado.CONSERJE);
-        asignaciones.add("");
-        return "Se asigno sdasbasb";
-    }
-
-    public List<String> mostrarAsignaciones(){
-        return asignaciones;
+    public void agregarAsignacione(EstadoAsignacion estadoAsignacion, String asignacion) {
+        asignaciones.add(new AsignacionTarea(estadoAsignacion,asignacion));
     }
 }

@@ -5,6 +5,7 @@
 package capainterfaz.modulo_inventario;
 
 import capanegocio.Articulo;
+import capanegocio.Hotel;
 
 import javax.swing.*;
 
@@ -13,12 +14,12 @@ import javax.swing.*;
  * @author Eduar
  */
 public class ComparArticulo extends javax.swing.JFrame {
-    Articulo ar;
+    Hotel hotel;
     /**
      * Creates new form ComparArticulo
      */
-    public ComparArticulo(Articulo ar) {
-        this.ar = ar;
+    public ComparArticulo(Hotel hotel) {
+        this.hotel = hotel;
         initComponents();
     }
 
@@ -110,7 +111,7 @@ public class ComparArticulo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int cantidad = Integer.parseInt(jTextField2.getText());
         if (cantidad>0){
-            ar.comprarArticulo(jTextField1.getText(),cantidad);
+            hotel.comprarArticulo(jTextField1.getText(),cantidad);
             this.dispose();
         }
         else{

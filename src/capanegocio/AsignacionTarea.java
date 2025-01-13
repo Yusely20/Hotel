@@ -9,8 +9,6 @@ public class AsignacionTarea {
         this.asignacion = asignacion;
     }
 
-    AsignacionTarea(){}
-
     public EstadoAsignacion getEstado() {
         return estado;
     }

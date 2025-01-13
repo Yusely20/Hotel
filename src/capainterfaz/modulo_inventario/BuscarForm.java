@@ -5,6 +5,7 @@
 package capainterfaz.modulo_inventario;
 
 import capanegocio.Articulo;
+import capanegocio.Hotel;
 
 import javax.swing.*;
 
@@ -13,10 +14,10 @@ import javax.swing.*;
  * @author Eduar
  */
 public class BuscarForm extends javax.swing.JFrame {
-    Articulo ar;
+    Hotel hotel;
     int tipo;
-    public BuscarForm(Articulo ar, int tipo) {
-        this.ar = ar;
+    public BuscarForm(Hotel hotel, int tipo) {
+        this.hotel = hotel;
         this.tipo = tipo;
         initComponents();
     }
@@ -100,11 +101,11 @@ public class BuscarForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Articulo articulo = ar.buscarArticulo(jTextField1.getText());
+        Articulo articulo = hotel.buscarArticulo(jTextField1.getText());
         if(articulo != null){
             JOptionPane.showMessageDialog(null, articulo.getNombre()+" "+articulo.getCategoria().toString()+" "+articulo.getCantidadDisponible());
             if(tipo == 1){
-                new ModificarArticulo(ar,articulo).setVisible(true); 
+                new ModificarArticulo(hotel,articulo).setVisible(true);
                 this.dispose();
         }
         }

@@ -4,7 +4,7 @@
  */
 package capainterfaz.modulo_inventario;
 
-import capanegocio.Articulo;
+import capanegocio.Hotel;
 
 /**
  *
@@ -12,9 +12,9 @@ import capanegocio.Articulo;
  */
 public class EliminarArticulo extends javax.swing.JFrame {
 
-    Articulo ar;
-    public EliminarArticulo(Articulo ar) {
-        this.ar = ar;
+    Hotel hotel;
+    public EliminarArticulo(Hotel hotel) {
+        this.hotel = hotel;
         initComponents();
     }
 
@@ -92,7 +92,7 @@ public class EliminarArticulo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ar.eliminarArticulo(jTextField1.getText());
+        hotel.eliminarArticulo(jTextField1.getText());
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

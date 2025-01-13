@@ -4,7 +4,7 @@
  */
 package capainterfaz.modulo_inventario;
 
-import capanegocio.Articulo;
+import capanegocio.Hotel;
 
 /**
  *
@@ -12,12 +12,12 @@ import capanegocio.Articulo;
  */
 public class RetirarArticulo extends javax.swing.JFrame {
 
-    Articulo ar;
+    Hotel hotel;
     /**
      * Creates new form r
      */
-    public RetirarArticulo(Articulo ar) {
-        this.ar = ar;
+    public RetirarArticulo(Hotel hotel) {
+        this.hotel = hotel;
         initComponents();
     }
 
@@ -104,7 +104,7 @@ public class RetirarArticulo extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int cantidad;
         try{cantidad = Integer.parseInt(jTextField2.getText());}catch (Exception a){ cantidad = 0;}
-        ar.retirarArticulo(jTextField2.getText(), cantidad);
+        hotel.retirarArticulo(jTextField2.getText(), cantidad);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

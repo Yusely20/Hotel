@@ -5,32 +5,24 @@ import java.util.List;
 
 public class Cliente extends Persona{
 
-    private List<Persona> clientes;
+    private List<Factura> facturas;
+    private List<Reserva> reservas;
 
     public Cliente(String cedula, String nombre, String apellido) {
         super(cedula, nombre, apellido);
-        this.clientes = new ArrayList<>();
+        this.facturas = new ArrayList<>();
+        this.reservas = new ArrayList<>();
     }
 
     public Cliente(){}
 
-    public String registrarCliente(String cedula, String nombre, String apellido){
+    public String agregarFactura(Factura factura){
+        facturas.add(factura);
         return "";
     }
 
-    public String modificarCliente(String cedula, String nombre, String apellido){
-        return " ";
-    }
-
-    public String eliminarCliente(String cedula){
+    public String agregarReserva(Reserva reserva){
+        reservas.add(reserva);
         return "";
-    }
-
-    public List<Persona> visualizarClientes(){
-        return clientes;
-    }
-
-    public Persona buscarCliente(String cedula){
-        return null;
     }
 }

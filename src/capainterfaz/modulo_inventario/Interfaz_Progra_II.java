@@ -1,13 +1,13 @@
 
 package capainterfaz.modulo_inventario;
 
-import capanegocio.Articulo;
+import capanegocio.Hotel;
 
 import javax.swing.*;
 
 public class Interfaz_Progra_II extends javax.swing.JFrame {
 
-    Articulo ar = new Articulo();
+    Hotel hotel = new Hotel();
     
     public Interfaz_Progra_II() {
         initComponents();
@@ -133,31 +133,31 @@ public class Interfaz_Progra_II extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, ar.mostrarArticulos());
+        JOptionPane.showMessageDialog(null, hotel.mostrarArticulos());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new BuscarForm(ar,0).setVisible(true);
+        new BuscarForm(hotel,0).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        new BuscarForm(ar,1).setVisible(true);
+        new BuscarForm(hotel,1).setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new EliminarArticulo(ar).setVisible(true);
+        new EliminarArticulo(hotel).setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new AgregarArticulo(ar).setVisible(true);
+        new AgregarArticulo(hotel).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        new ComparArticulo(ar).setVisible(true);
+        new ComparArticulo(hotel).setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        new RetirarArticulo(ar).setVisible(true);
+        new RetirarArticulo(hotel).setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

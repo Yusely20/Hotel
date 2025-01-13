@@ -5,6 +5,7 @@
 package capainterfaz.modulo_inventario;
 import capanegocio.Articulo;
 import capanegocio.Categoria;
+import capanegocio.Hotel;
 import capanegocio.TipoAlerta;
 
 /**
@@ -12,12 +13,12 @@ import capanegocio.TipoAlerta;
  * @author Eduar
  */
 public class AgregarArticulo extends javax.swing.JFrame {
-    Articulo ar;
+    Hotel hotel;
     /**
      * Creates new form AgregarArticulo
      */
-    public AgregarArticulo(Articulo ar) {
-        this.ar = ar;
+    public AgregarArticulo(Hotel hotel) {
+        this.hotel = hotel;
         initComponents();
     }
 
@@ -183,7 +184,7 @@ public class AgregarArticulo extends javax.swing.JFrame {
         }
         int cantidad = Integer.parseInt(Cant.getText());
 
-        ar.agregarArticulo(Nom.getText(), categoria, cantidad, alerta(cantidad));
+        hotel.agregarArticulo(Nom.getText(), categoria, cantidad, alerta(cantidad));
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
