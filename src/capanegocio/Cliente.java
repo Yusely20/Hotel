@@ -25,4 +25,14 @@ public class Cliente extends Persona{
         reservas.add(reserva);
         return "";
     }
+
+    public String eliminarFactura(Factura factura) {
+        facturas.remove(factura);
+        return "Factura eliminada";
+    }
+
+    public String eliminarReserva(Reserva reserva) {
+        reservas.remove(reserva);
+        return "Reserva eliminada";
+    }
 }

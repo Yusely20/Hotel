@@ -9,6 +9,8 @@ public class AsignacionTarea {
         this.asignacion = asignacion;
     }
 
+    public AsignacionTarea(){}
+
     public EstadoAsignacion getEstado() {
         return estado;
     }
@@ -25,13 +27,12 @@ public class AsignacionTarea {
         this.asignacion = asignacion;
     }
 
-    public AsignacionTarea asignar(CargoEmpleado cargo){
-
-     if(CargoEmpleado.CONSERJE == cargo){
-
-     }else {
-
-     }
-     return new AsignacionTarea(EstadoAsignacion.PENDIENTE," ");
+    public AsignacionTarea asignar(CargoEmpleado cargo) {
+        if (CargoEmpleado.CONSERJE == cargo) {
+            return new AsignacionTarea(EstadoAsignacion.PENDIENTE, "Tarea de conserje asignada");
+        } else if (CargoEmpleado.RECEPCION == cargo) {
+            return new AsignacionTarea(EstadoAsignacion.PENDIENTE, "Tarea de recepción asignada");
+        }
+        return new AsignacionTarea(EstadoAsignacion.PENDIENTE, "Tarea asignada");
     }
 }

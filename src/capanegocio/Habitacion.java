@@ -1,28 +1,20 @@
 package capanegocio;
-import java.util.List;
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 public class Habitacion {
 
     private int numHabitacion;
     private TipoHabitacion tipoHabitacion;
-    private int[] dias = new int[30];
     private double precioNoche;
-    private List<Habitacion> habitaciones;
+    private EstadoHabitacion[] dias; // Los 30 días con estados.
 
     public Habitacion(int numHabitacion, double precioNoche, TipoHabitacion tipoHabitacion) {
         this.numHabitacion = numHabitacion;
         this.precioNoche = precioNoche;
         this.tipoHabitacion = tipoHabitacion;
-        for (int i = 1; i < 31; i++) {
-            dias[i-1]=i;
-        }
-        habitaciones = new ArrayList<>();
-        habitaciones.add(new Habitacion(1,13.32,TipoHabitacion.INDIVIDUAL));
-        habitaciones.add(new Habitacion(2,22,TipoHabitacion.DOBLE));
-        habitaciones.add(new Habitacion(3,32,TipoHabitacion.SUITE));
-        habitaciones.add(new Habitacion(4,11.2,TipoHabitacion.INDIVIDUAL));
+        this.dias = new EstadoHabitacion[30];
+        Arrays.fill(dias, EstadoHabitacion.DISPONIBLE); // Inicializar todos los días como DISPONIBLE.
     }
 
     public int getNumHabitacion() {
@@ -49,20 +41,55 @@ public class Habitacion {
         this.tipoHabitacion = tipoHabitacion;
     }
 
-    public int[] getDias() {
+    public EstadoHabitacion[] getDias() {
         return dias;
     }
 
-    public List<Habitacion> getHabitaciones() {
-        return habitaciones;
-    }
+    public boolean reservarDias(int diaInicio, int diaFin) {
+        if (diaInicio < 1 || diaFin > 30 || diaInicio > diaFin) {
+            return false; // Rango de días inválido.
+        }
 
-    public Habitacion buscarHabitacion(int numHabitacion){
-        for(Habitacion habitacion: habitaciones){
-            if(numHabitacion == habitacion.numHabitacion){
-                return habitacion;
+        for (int i = diaInicio - 1; i < diaFin; i++) {
+            if (dias[i] != EstadoHabitacion.DISPONIBLE) {
+                return false;
             }
         }
-        return null;
+
+        for (int i = diaInicio - 1; i < diaFin; i++) {
+            dias[i] = EstadoHabitacion.OCUPADA;
+        }
+
+        return true;
     }
+
+    public boolean cancelarReserva(int diaInicio, int diaFin) {
+        if (diaInicio < 1 || diaFin > 30 || diaInicio > diaFin) {
+            return false;
+        }
+
+        for (int i = diaInicio - 1; i < diaFin; i++) {
+            if (dias[i] == EstadoHabitacion.OCUPADA) {
+                dias[i] = EstadoHabitacion.DISPONIBLE;
+            }
+        }
+
+        return true;
+    }
+
+    public boolean estaDisponible(int diaInicio, int diaFin) {
+        if (diaInicio < 1 || diaFin > 30 || diaInicio > diaFin) {
+            return false; // Rango de días inválido.
+        }
+
+        for (int i = diaInicio - 1; i < diaFin; i++) {
+            if (dias[i] != EstadoHabitacion.DISPONIBLE) { // Si algún día no está disponible, retornar false.
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+
 }

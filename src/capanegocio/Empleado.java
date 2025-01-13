@@ -28,6 +28,10 @@ public class Empleado extends Persona {
         return disponibilidad;
     }
 
+    public List<AsignacionTarea> getAsignaciones() {
+        return asignaciones;
+    }
+
     public void setDisponibilidad(boolean disponibilidad) {
         this.disponibilidad = disponibilidad;
     }
@@ -39,4 +43,9 @@ public class Empleado extends Persona {
     public void agregarAsignacione(EstadoAsignacion estadoAsignacion, String asignacion) {
         asignaciones.add(new AsignacionTarea(estadoAsignacion,asignacion));
     }
+
+    public void eliminarAsignacion(AsignacionTarea asignacion) {
+        asignaciones.remove(asignacion);
+    }
+
 }

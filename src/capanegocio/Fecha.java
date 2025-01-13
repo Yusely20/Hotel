@@ -9,6 +9,7 @@ public class Fecha {
         this.dia = dia;
         this.mes = mes;
         this.anio = anio;
+        validarFecha();
     }
 
     public int getDia() {
@@ -17,6 +18,7 @@ public class Fecha {
 
     public void setDia(int dia) {
         this.dia = dia;
+        validarFecha();
     }
 
     public int getMes() {
@@ -25,6 +27,7 @@ public class Fecha {
 
     public void setMes(int mes) {
         this.mes = mes;
+        validarFecha();
     }
 
     public int getAnio() {
@@ -33,5 +36,13 @@ public class Fecha {
 
     public void setAnio(int anio) {
         this.anio = anio;
+        validarFecha();
     }
+
+    private void validarFecha() {
+        if (dia < 1 || dia > 31 || mes < 1 || mes > 12 || anio < 1) {
+            throw new IllegalArgumentException("Fecha inválida");
+        }
+    }
+
 }

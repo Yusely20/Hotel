@@ -40,11 +40,26 @@ public class Articulo {
     
     public void setCantidadDisponible(int cantidadDisponible) {
         this.cantidadDisponible = cantidadDisponible;
+        actualizarPrioridad();
     }
-    
+
+    public  TipoAlerta getPrioridad(){
+        return  prioridad;
+    }
     public void setPrioridad(TipoAlerta prioridad) {
         this.prioridad = prioridad;
     }
 
+    private void actualizarPrioridad() {
+        if (cantidadDisponible <= LIMITEBAJO) {
+            prioridad = TipoAlerta.ALTA;
+        } else if (cantidadDisponible <= LIMITEMEDIO) {
+            prioridad = TipoAlerta.MEDIA;
+        } else if (cantidadDisponible < LIMITEALTO) {
+            prioridad = TipoAlerta.BAJA;
+        } else {
+            prioridad = TipoAlerta.NA;
+        }
+    }
 
 }
