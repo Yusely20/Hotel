@@ -17,6 +17,8 @@ public class Habitacion {
         Arrays.fill(dias, EstadoHabitacion.DISPONIBLE); // Inicializar todos los días como DISPONIBLE.
     }
 
+    public Habitacion(){}
+
     public int getNumHabitacion() {
         return numHabitacion;
     }

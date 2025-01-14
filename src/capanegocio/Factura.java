@@ -5,7 +5,7 @@ import java.util.Date;
 public class Factura {
     private int numFactura;
     private Cliente cliente;
-    private Date fechaEmision;
+    private Fecha fechaEmision;
     private double montoTotal;
     private boolean pagada;
     private String descripcion;
@@ -13,7 +13,7 @@ public class Factura {
     private MetodoPago metodoPago;
 
 
-    public Factura(int numFactura, Cliente cliente, Date fechaEmision, double montoTotal, String descripcion, Reserva reserva, MetodoPago metodoPago) {
+    public Factura(int numFactura, Cliente cliente, Fecha fechaEmision, double montoTotal, String descripcion, Reserva reserva, MetodoPago metodoPago) {
         this.numFactura = numFactura;
         this.cliente = cliente;
         this.fechaEmision = fechaEmision;
@@ -40,11 +40,11 @@ public class Factura {
         this.cliente = cliente;
     }
 
-    public Date getFechaEmision() {
+    public Fecha getFechaEmision() {
         return fechaEmision;
     }
 
-    public void setFechaEmision(Date fechaEmision) {
+    public void setFechaEmision(Fecha fechaEmision) {
         this.fechaEmision = fechaEmision;
     }
 
